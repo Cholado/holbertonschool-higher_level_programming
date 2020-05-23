@@ -1,0 +1,125 @@
+Module - 0-add_integer
+
+=======================
+
+Using ``add_integer``
+-----------------------
+
+Parameter "b" is defaulted to int "98" if not specified
+Verifies variable type int for both parameters
+Return the addition of parameter value numbers
+
+Importing the function from the module:
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+------------------------
+Documentation validation
+------------------------
+
+Checking for module docstring:
+    >>> m = __import__("0-add_integer").__doc__
+    >>> len(m) > 1
+    True
+
+Checking for function docstring:
+    >>> f = __import__("0-add_integer").add_integer.__doc__
+    >>> len(f) > 1
+    True
+
+------------------------
+Function validation
+------------------------
+
+Checking regular addition:
+    >>> add_integer(1, 2)
+    3
+
+Checking positive with negative:
+    >>> add_integer(100, -2)
+    98
+
+Checking negative with positive:
+    >>> add_integer(-100, 2)
+    -98
+
+Checking single parameter input:
+    >>> add_integer(2)
+    100
+
+Checking float with negative int:
+    >>> add_integer(100.3, -2)
+    98
+
+Checking negative float with int:
+    >>> add_integer(-100.3, 2)
+    -98
+
+Checking both float:
+    >>> add_integer(50.1, 50.45)
+    100
+
+Checking big float single parameter:
+    >>> add_integer(2000.5)
+    2098
+
+Checking for passed NaN:
+    >>> add_integer(float('NaN'))
+    Traceback (most recent call last):
+    ...
+    ValueError: cannot convert float NaN to integer
+
+Checking for passed string input:
+    >>> add_integer(4, "school")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Checking for passed None input:
+    >>> add_integer(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Checking negative float with negative float:
+    >>> add_integer(-50.3, -50.2)
+    -100
+
+Checking for passed string input both parameters:
+    >>> add_integer("holberton", "school")
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Checking for passed inf:
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+    ...
+    OverflowError: cannot convert float infinity to integer
+
+Checking long long int:
+    >>> add_integer(1000000000000000000, 1000000000000000000)
+    2000000000000000000
+
+Checking boolean true:
+    >>> add_integer(True)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+Checking boolean false:
+    >>> add_integer(0, False)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+
+Checking no input parameter to argument a:
+    >>> add_integer()
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() missing required argument: 'a'
+
+Checking more than 2 parameters to argument slots:
+    >>> add_integer(1, 2, 3, 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: add_integer() takes 2 arguments but more were given
