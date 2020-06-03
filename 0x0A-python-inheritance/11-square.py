@@ -54,7 +54,7 @@ class Rectangle(BaseGeometry):
         """
         informal string representation of the subclass rectangle
         """
-        return "[Rectangle] {:d}/{:d}.format(self.__width, self.__height)
+        return "[Rectangle] {:d}/{:d}".format(self.__width, self.__height)
 
 
 class Square(Rectangle):
